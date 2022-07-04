@@ -7,7 +7,7 @@ f.ggsave.goldenratio <- function(ff) {
 }
 
 #get sheet data
-gg <- ""
+gg <- Sys.getenv("Schanz.ggsheet") 
 gg.dta <- read_sheet(gg)
 
 # wrangle data; set up date format
@@ -48,7 +48,7 @@ ggplot(dta, aes(x=Offer, y=Year, group=Year, fill=Year))+
   scale_x_continuous(limits = c(0, 1200))+
   theme_minimal()+
   labs(
-    title = "Distribution of offers per year (Euros)",
+    title = "Distribution of offers per year (only offers of <1200 Euros)",
     subtitle = "Schanz Adventskalender",
     y = ""
   )
